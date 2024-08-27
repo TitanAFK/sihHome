@@ -1,0 +1,491 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>A cool company</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  <style type="text/css" id="operaUserStyle"></style></head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+:root {
+  --background-1: #0E1525;
+  --background-1-transparent: rgb(14 21 37 / 60%);
+  --background-2: #1C2333;
+  --background-3: #2B3245;
+  --background-4: #3C445C;
+
+  --foreground-1: #f5f9f5;
+  --foreground-2: #c2c8cc;
+
+  --accent-1: #0053A6;
+  --accent-2: #0079F2;
+  --accent-3: #57ABFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--background-1);
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--foreground-1);
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 150%;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--foreground-2);
+  font-weight: 500;
+}
+
+p {
+  color: var(--foreground-2);
+  font-size: 16px;
+  line-height: 150%;
+}
+
+a {
+  color: var(--foreground-1);
+  font-weight: medium;
+  transition: 120ms ease-out;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-3) !important;
+}
+
+button {
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: var(--background-2);
+  border: none;
+  color: var(--foreground-1);
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  transition: box-shadow 120ms ease-out, top 120ms ease-out;
+  font-weight: 500;
+}
+
+button:hover {
+  background: var(--background-3);
+  top: -2px;
+  box-shadow: 0 8px 16px rgb(2 2 3 / 32%);
+}
+
+button:active {
+  top: 1px;
+  box-shadow: 0 8px 16px rgb(2 2 3 / 16%);
+}
+
+button.cta {
+  background: var(--accent-1);
+}
+
+button.cta:hover {
+  background: var(--accent-2);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 128px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 16px 16px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: var(--background-1-transparent);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+}
+
+.nav-inner {
+  max-width: 1052px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav .left,
+nav .right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+nav .left .logo {
+  width: 48px;
+  height: 48px;
+  background: var(--background-2);
+  border-radius: 50%;
+}
+
+nav .left .name {
+  color: var(--foreground-1);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1056px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.hero .header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  max-width: 520px;
+}
+
+.features .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.features .tile {
+  width: 100%;
+  height: 400px;
+  background: var(--background-2);
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.features .row .tile.small {
+  width: 50%;
+  flex-direction: column;
+}
+
+.features .row {
+  display: flex;
+  gap: 32px;
+}
+
+.features .tile .text {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.features .row .tile.small .text {
+  flex: revert;
+}
+
+.features .row .tile .media {
+  background: var(--background-3);
+}
+
+.features .grid .tile.large .media {
+  width: 600px;
+  height: 340px;
+  border-top-left-radius: 32px;
+  margin-top: auto;
+  background: var(--background-3);
+}
+
+.features .row .tile.small .media {
+  width: calc(100% - 64px);
+  flex: 1;
+  border-radius: 32px 32px 0 0;
+}
+
+.call-to-action .callout-container {
+  width: 100%;
+  border-radius: 32px;
+  background: var(--background-2);
+  padding: 64px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.call-to-action .callout-container .text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.call-to-action .callout-container .buttons button:not(.cta) {
+  background: var(--background-3);
+}
+
+.call-to-action .callout-container .buttons button:not(.cta):hover {
+  background: var(--background-4);
+}
+
+footer {
+  background: var(--background-2);
+  padding: 64px 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+footer .inner {
+  max-width: 1052px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+footer .inner .column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+footer .inner .column .logo {
+  width: 48px;
+  height: 48px;
+  background: var(--background-3);
+  border-radius: 50%;
+}
+
+footer .inner .column .name {
+  color: var(--foreground-1);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+footer .inner .column a {
+  color: var(--foreground-2);
+}
+
+footer .column p {
+  color: var(--foreground-1);
+  font-weight: 500;
+}
+    </style>
+  <body>
+    <main>
+      <nav>
+        <div class="nav-inner">
+          <div class="left">
+            <div class="logo"></div>
+
+            <p class="name">Fit Flow</p>
+
+            <a href="">Blog</a>
+
+            <a href="">Sports</a>
+
+            <a href="">Programms</a>
+
+            <a href="">Health Tests</a>
+<a href="">Store</a>
+          </div>
+
+          <div class="right">
+             <a href=" https://titanafk.github.io/login/ ">
+              <button>Log In</button></a>
+
+            <button class="cta">Sign Up</button>
+          </div>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div class="header-container">
+          <h1>Venturing into the recondite corridors of knowledge.</h1>
+
+          <h4>
+            Experience the power of our cutting-edge product that will
+            revolutionize your student's performance . Try it today!
+          </h4>
+        </div>
+
+        <div class="buttons">
+          <button>Try For Free</button>
+
+          <button class="cta">Start Today</button>
+        </div>
+      </section>
+
+      <section class="features">
+        <h2>Section name</h2>
+
+        <div class="grid">
+          <div class="tile large">
+            <div class="text">
+              <h3>LIVE QUIZES</h3>
+
+              <p>
+                apply your knowledge racing with time 
+              </p>
+            </div>
+
+            <div class="media"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="tile small">
+            <div class="text">
+              <h3>detailed anylatics</h3>
+
+              <p>
+                Get to know detailed reports of your performance to know and improve 
+              </p>
+            </div>
+
+            <div class="media"></div>
+          </div>
+          <div class="tile small">
+            <div class="text">
+              <h3>OP(ONLINE POINTS)</h3>
+
+              <p>
+                Earn points after completing tasks and games to get points and customize ur own avatars and pets
+              </p>
+            </div>
+
+            <div class="media"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="call-to-action">
+        <div class="callout-container">
+          <div class="text">
+            <h2>Get started today</h2>
+            <p>
+              This is a fancy product which will help your student enjoy with studies 
+              you’ll love it. Just try it today!
+            </p>
+          </div>
+
+          <div class="buttons">
+            <button>Watch Demo</button>
+
+            <button class="cta">Start Today</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="inner">
+          <div class="column">
+            <div class="logo"></div>
+
+            <p class="name">Name of Company</p>
+
+            <a href="">Twitter</a>
+
+            <a href="">TikTok</a>
+
+            <a href="">YouTube</a>
+
+            <a href="">Facebook</a>
+          </div>
+
+          <div class="column">
+            <p>Features</p>
+
+            <a href="">Connections</a>
+
+            <a href="">Integrations</a>
+
+            <a href="">Relationships</a>
+
+            <a href="">Associations</a>
+          </div>
+
+          <div class="column">
+            <p>Handy links</p>
+
+            <a href="">Pricing</a>
+
+            <a href="">Documentation</a>
+
+            <a href="">About</a>
+
+            <a href="">Forum</a>
+
+            <a href="">Status</a>
+
+            <a href="">Brand kit</a>
+          </div>
+
+          <div class="column">
+            <p>Legal</p>
+
+            <a href="">Privacy Policy</a>
+           
+
+            <a href="">Terms and Conditions</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  
+
+</body></html>
